@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'users/css/email_verification.css' %}">
+{% endblock %}
+{% block title %}Подтверждение почты{% endblock %}
+
+{% block content %}
+<div class="email-verification">
+    <div class="verification-card">
+        <h2 class="verification-title">
+            <i class="fas fa-envelope"></i> Подтверждение почты
+        </h2>
+
+        <div class="verification-content">
+            <p class="verification-text">
+                <i class="fas fa-info-circle"></i> На вашу почту отправлен 6-значный код подтверждения
+            </p>
+
+            <form method="POST" class="verification-form">
+                {% csrf_token %}
+                <div class="code-input-group">
+                    <input type="text" name="code" class="form-control code-input"
+                           placeholder="Введите 6 цифр" required maxlength="6"
+                           pattern="\d{6}" title="Пожалуйста, введите 6 цифр">
+                    <button type="submit" class="verify-btn">
+                        <i class="fas fa-check"></i> Подтвердить
+                    </button>
+                </div>
+            </form>
+
+            <div class="status-messages">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    <i class="fas
+                        {% if message.tags == 'success' %}fa-check-circle
+                        {% elif message.tags == 'error' %}fa-exclamation-circle
+                        {% else %}fa-info-circle{% endif %}"></i>
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="resend-section" id="countdown-text"
+                 data-resend-url="{% url 'users:resend_verification_code' %}">
+                <p>Не получили код?</p>
+                {% if can_resend_code %}
+                <a href="{% url 'users:resend_verification_code' %}" class="resend-link">
+                    <i class="fas fa-redo"></i> Отправить новый код
+                </a>
+                {% else %}
+                <div class="countdown">
+                    Можно запросить повторно через: <span id="countdown">{{ remaining_time }}</span>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'users/js/time_for_code.js' %}"></script>
+{% endblock %}

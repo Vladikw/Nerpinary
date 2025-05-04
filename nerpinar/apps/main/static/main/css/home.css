@@ -1,0 +1,54 @@
+/* Стили для карусели */
+.hero-section {
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.carousel {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-img {
+    height: 400px; /* Фиксированная высота для прямоугольной формы */
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 2rem;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+}
+
+.carousel-caption h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Стили для стрелок */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    opacity: 0.8;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+/* Стили для секции "О нас" */
+.about-section {
+    margin-top: 3rem;
+}
+
+.about-section img {
+    max-height: 400px;
+    object-fit: cover;
+}
+

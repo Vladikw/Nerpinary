@@ -1,0 +1,86 @@
+/* Общие стили */
+body {
+    background: #FFFFFF;
+}
+
+.top-bar {
+    display: flex;
+    background: #8BCADC ;
+    align-items: center; /* вертикальное выравнивание */
+    gap: 40px;
+    padding: 20px; /* внутренние отступы сверху/снизу и слева/справа */
+    font-size: 25px;
+    color: #FFFFFF;
+}
+
+.logo {
+    width: 170px;       /* фиксированная ширина */
+    height: auto;       /* сохраняет пропорции */
+    margin-left: -12px; /* отступ справа от лого */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;  /* выравнивание по вертикали */
+  gap: 5px;         /* добавляем пространство между иконками и текстом */
+  font-size: 25px;
+  color: #3875A1;
+}
+
+.contact-item i {
+    font-size: 30px;
+    gap: 3px;
+    color: #3875A1; /* можно поменять под цвет дизайна */
+}
+
+.sidebar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    background: #3875A1;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.sidebar-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 100px;
+}
+
+.sidebar-link {
+  color: #FFFFFF;          /* Белый цвет текста */
+  text-decoration: none;   /* Убираем подчеркивание */
+  font-size: 20px;         /* Размер шрифта */
+  transition: color 0.3s;  /* Плавный переход для изменения цвета */
+}
+
+.sidebar-link:hover {
+  color: #20284D;          /* Цвет текста при наведении */
+}
+
+/* Добавим отступы для элементов внутри меню */
+.sidebar-menu li a {
+  padding: 10px;
+  border-radius: 5px;      /* Закругленные углы */
+  display: block;          /* Ссылка занимает всю ширину блока */
+}
+
+/* Стиль для активной ссылки (например, текущая страница) */
+.sidebar-link.active {
+  font-weight: bold;       /* Жирное начертание для активной ссылки */
+  color: #20284D;          /* Цвет для активной ссылки */
+}
+
+
+
+
+
